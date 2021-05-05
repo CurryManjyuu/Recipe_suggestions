@@ -6,11 +6,9 @@ services:
       - "5000:5000"
     volumes:
       ##共通化
-      - ./src:/code
+      - ./backend/src:/code
     depends_on:
       - redis
   redis:
     image: redis
 
-
-    
