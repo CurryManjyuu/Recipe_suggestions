@@ -1,0 +1,13 @@
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      ##共通化
+      - ./src:/code
+    depends_on:
+      - redis
+  redis:
+    image: redis
