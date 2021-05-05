@@ -16,7 +16,6 @@ def Hello():
     return "Hello"
 
 
-
 @app.route('/route')
 def route():
     return "route"
