@@ -22,11 +22,12 @@
         >
           <v-item>
             <v-list-item-group>
-              <v-list-item>
+              <v-list-item to="/">
                 <v-list-item-icon>
                   <v-icon v-text="post.id"></v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
+                  <v-img src="https://image.space.rakuten.co.jp/d/strg/ctrl/3/2b9588fa2f68eb96f9c00db39fb5590ad2dd2b36.98.2.3.2.jpg?thum=55" aspect-ratio="1.7" contain></v-img>
                   <v-list-item-title v-text="post.title"></v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
