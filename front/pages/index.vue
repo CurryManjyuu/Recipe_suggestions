@@ -6,6 +6,7 @@
     <VuetifyLogo></VuetifyLogo>
     <God></God>
     <Home></Home>
+    <Test></Test>
   </div>
 </template>
 
@@ -16,7 +17,7 @@ import VuetifyLogo from "~/components/VuetifyLogo.vue";
 export default {
   components: {
     Logo,
-    VuetifyLogo
+    VuetifyLogo,
   }
 };
 </script>
