@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-app-bar>
+  <v-app>
+    <div>
       <h1>今日のレシピ</h1>
       <v-btn
         to="/select/start"
@@ -10,9 +10,8 @@
         class="white--text"
         ><b>何つくろう</b></v-btn
       >
-      <Login style="position:absolute;top:5px;right:70px"></Login>
-    </v-app-bar>
-  </div>
+    </div>
+  </v-app>
 </template>
 
 <script>
