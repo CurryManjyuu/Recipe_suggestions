@@ -2,6 +2,7 @@ flask
 redis
 flask-cors
 flask_restful
+requests
 
 
 
