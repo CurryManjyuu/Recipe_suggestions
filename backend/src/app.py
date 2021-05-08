@@ -21,8 +21,8 @@ def hello():
     return "Hello"
 
 
-@app.route("/recipe/large", methods=['GET'])
-def resMedRainking(category_id = 10):
+@app.route("/recipe/large/<int:category_id>", methods=['GET'])
+def resMedRainking(category_id):
     # 大カテゴリを受け取り、中カテゴリIdが何なのかを調べるためカテゴリ一覧API利用
     # 中カテゴリId分をforで繰り返し、ランキングを取得
 
