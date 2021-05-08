@@ -14,6 +14,14 @@
   </v-app>
 </template>
 
+<style scoped>
+h1 {
+  font-size: 8em;
+  margin: 0.5em auto;
+  text-align: center;
+}
+</style>
+
 <script>
 export default {
   components: {}

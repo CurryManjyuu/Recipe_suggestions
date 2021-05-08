@@ -1,7 +1,9 @@
 <template>
   <v-app dark style="position:relative">
     <v-app-bar fixed app>
-      <v-toolbar-title v-text="title" />
+      <v-btn to="/">
+        <v-toolbar-title v-text="title" />
+      </v-btn>
       <v-spacer />
       <Login></Login>
     </v-app-bar>
@@ -35,7 +37,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: "Vuetify.js"
+      title: "Today's Recipe"
     };
   }
 };
