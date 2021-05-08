@@ -1,18 +1,29 @@
 <template>
   <v-app>
     <div>
-      <h1>今日のレシピ</h1>
+      <h1>今日の飯</h1>
       <v-btn
         to="/select/start"
         x-large
         color="pink accent-4"
         block
-        class="white--text"
-        ><b>何つくろう</b></v-btn
+        class="white--text start-button"
+        ><b>何つくろう？</b></v-btn
       >
     </div>
   </v-app>
 </template>
+
+<style scoped>
+h1 {
+  font-size: 8em;
+  margin: 0.5em auto;
+  text-align: center;
+}
+.start-button {
+  font-size: 1.75em;
+}
+</style>
 
 <script>
 export default {
