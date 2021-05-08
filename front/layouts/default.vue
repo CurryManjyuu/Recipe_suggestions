@@ -1,11 +1,9 @@
 <template>
-  <v-app dark>
-    <v-app-bar :clipped-left="clipped" fixed app>
+  <v-app dark style="position:relative">
+    <v-app-bar fixed app>
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      <Login></Login>
     </v-app-bar>
     <v-main>
       <v-container>
