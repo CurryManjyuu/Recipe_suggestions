@@ -12,31 +12,9 @@
           <v-btn rounded to="/select/start" x-large color="light-blue accent-1" block class="indigo--text"><b>気分から選ぶ</b></v-btn>
         </v-col>
       </v-row>
-      <!-- カテゴリ選択前 → カテゴリ一覧表示 -->
-      <v-row class="center" v-if="select">
-        <!-- 楽天のレシピページへのリンク付き画像 -->
-        <v-col v-for="(post, i) in posts" :key="i" cols="12" md="4">
-          <v-item>
-            <v-list-item-group>
-              <v-list-item v-bind:href="post.recipeUrl" target="_blank">
-                <v-list-item-content>
-                  <v-img
-                    v-bind:src="post.foodImageUrl"
-                    aspect-ratio="1.7"
-                    contain
-                  ></v-img>
-                  <v-list-item-title v-text="post.title"></v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list-item-group>
-          </v-item>
-        </v-col>
-      </v-row>
-      <!-- カテゴリ選択後 → レシピ一覧表示 -->
-      <v-row class="center" v-else>
+      <v-row class="center">
         <!-- カテゴリ別ボタン -->
         <v-col v-for="(post, i) in posts" :key="i" cols="12" md="4">
-          <!-- ボタンを押してアクションを実行 -->
           <v-btn
             v-bind:color="post.color"
             class="white--text"
@@ -100,18 +78,13 @@ export default {
           "color": "light-blue darken-1"
         },
       ],
-      categoryId: "",
-      select: false,
     };
   },
   methods: {
     // カテゴリ選択時に呼び出されるメソッド
-    // データを新しく更新する
-    selectCategory: function(id) {
-      this.select = true;
-      axios
-        .get("http://localhost:5000/recipe/large/"+id)
-        .then(response => (this.posts = response.data));
+    // カテゴリで抽出されたレシピ一覧ページへ遷移
+    selectCategory: function(categoryId) {
+      this.$router.push("/select/"+categoryId);
     }
   }
 };
