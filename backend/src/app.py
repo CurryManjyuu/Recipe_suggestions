@@ -9,9 +9,7 @@ import json
 # from redis import Redis
 app = Flask(__name__)
 CORS(app)
-
 # app.register_blueprint(test, url_prefix='/api')
-
 
 @app.route('/')
 def hello():
