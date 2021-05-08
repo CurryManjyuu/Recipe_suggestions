@@ -1,15 +1,15 @@
 <template>
   <div class="large-category-btn-box">
     <v-container>
-      <v-row class="center">
+      <v-row class="center" style="margin-bottom:1.5em;">
         <v-col cols="12" sm="12" md="4" lg="4">
-          <v-btn rounded to="/select/categories" x-large color="light-blue accent-4" block class="white--text"><b>材料から選ぶ</b></v-btn>
+          <v-btn rounded to="/select/categories" x-large color="orange accent-4" block class="white--text"><b>材料から選ぶ</b></v-btn>
         </v-col>
         <v-col cols="12" sm="12" md="4" lg="4">
           <v-btn rounded to="/select/method" x-large color="green accent-4" block class="white--text"><b>シーンから選ぶ</b></v-btn>
         </v-col>
         <v-col cols="12" sm="12" md="4" lg="4">
-          <v-btn rounded to="/select/feeling" x-large color="orange accent-1" block class="deep-orange--text"><b>気分から選ぶ</b></v-btn>
+          <v-btn rounded to="/select/feeling" x-large color="light-blue accent-1" block class="indigo--text"><b>気分から選ぶ</b></v-btn>
         </v-col>
       </v-row>
       <!-- カテゴリ選択前 → カテゴリ一覧表示 -->
@@ -19,7 +19,6 @@
           <v-item>
             <v-list-item-group>
               <v-list-item v-bind:href="post.recipeUrl" target="_blank">
-                <v-list-item-icon> </v-list-item-icon>
                 <v-list-item-content>
                   <v-img
                     v-bind:src="post.foodImageUrl"
@@ -63,42 +62,42 @@ export default {
         {
           "categoryName": "中華料理",
           "categoryId": "41",
-          "categoryUrl": "https://recipe.rakuten.co.jp/category/41/"
+          "color": "light-blue darken-1"
         },
         {
           "categoryName": "韓国料理",
           "categoryId": "42",
-          "categoryUrl": "https://recipe.rakuten.co.jp/category/42/"
+          "color": "light-blue darken-1"
         },
         {
           "categoryName": "イタリア料理",
           "categoryId": "43",
-          "categoryUrl": "https://recipe.rakuten.co.jp/category/43/"
+          "color": "light-blue darken-1"
         },
         {
           "categoryName": "フランス料理",
           "categoryId": "44",
-          "categoryUrl": "https://recipe.rakuten.co.jp/category/44/"
+          "color": "light-blue darken-1"
         },
         {
           "categoryName": "西洋料理",
           "categoryId": "25",
-          "categoryUrl": "https://recipe.rakuten.co.jp/category/25/"
+          "color": "light-blue darken-1"
         },
         {
           "categoryName": "エスニック料理・中南米",
           "categoryId": "46",
-          "categoryUrl": "https://recipe.rakuten.co.jp/category/46/"
+          "color": "light-blue darken-1"
         },
         {
           "categoryName": "沖縄料理",
           "categoryId": "47",
-          "categoryUrl": "https://recipe.rakuten.co.jp/category/47/"
+          "color": "light-blue darken-1"
         },
         {
           "categoryName": "日本各地の郷土料理",
           "categoryId": "48",
-          "categoryUrl": "https://recipe.rakuten.co.jp/category/48/"
+          "color": "light-blue darken-1"
         },
       ],
       categoryId: "",
@@ -111,11 +110,7 @@ export default {
     selectCategory: function(id) {
       this.select = true;
       axios
-        .get("http://localhost:5000/recipe/large", {
-          params: {
-            category_id: id
-          }
-        })
+        .get("http://localhost:5000/recipe/large/"+id)
         .then(response => (this.posts = response.data));
     }
   }

@@ -1,15 +1,15 @@
 <template>
   <div class="large-category-btn-box">
     <v-container>
-      <v-row class="center">
+      <v-row class="center" style="margin-bottom:1.5em;">
         <v-col cols="12" sm="12" md="4" lg="4">
-          <v-btn rounded to="/select/categories" x-large color="light-blue accent-4" block class="white--text"><b>材料から選ぶ</b></v-btn>
+          <v-btn rounded to="/select/categories" x-large color="orange accent-4" block class="white--text"><b>材料から選ぶ</b></v-btn>
         </v-col>
         <v-col cols="12" sm="12" md="4" lg="4">
-          <v-btn rounded to="/select/method" x-large color="green accent-1" block class="teal--text"><b>シーンから選ぶ</b></v-btn>
+          <v-btn rounded to="/select/method" x-large color="green accent-2" block class="teal--text"><b>シーンから選ぶ</b></v-btn>
         </v-col>
         <v-col cols="12" sm="12" md="4" lg="4">
-          <v-btn rounded to="/select/feeling" x-large color="orange accent-4" block class="white--text"><b>気分から選ぶ</b></v-btn>
+          <v-btn rounded to="/select/feeling" x-large color="light-blue accent-4" block class="white--text"><b>気分から選ぶ</b></v-btn>
         </v-col>
       </v-row>
       <!-- カテゴリ選択前 → カテゴリ一覧表示 -->
@@ -19,7 +19,6 @@
           <v-item>
             <v-list-item-group>
               <v-list-item v-bind:href="post.recipeUrl" target="_blank">
-                <v-list-item-icon> </v-list-item-icon>
                 <v-list-item-content>
                   <v-img
                     v-bind:src="post.foodImageUrl"
@@ -63,77 +62,77 @@ export default {
         {
         "categoryName": "お弁当",
         "categoryId": "20",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/20/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "簡単料理・時短",
         "categoryId": "36",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/36/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "節約料理",
         "categoryId": "37",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/37/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "今日の献立",
         "categoryId": "38",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/38/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "健康料理",
         "categoryId": "39",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/39/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "調理器具",
         "categoryId": "40",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/40/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "行事・イベント",
         "categoryId": "24",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/24/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "おせち料理",
         "categoryId": "49",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/49/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "クリスマス",
         "categoryId": "50",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/50/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "ひな祭り",
         "categoryId": "51",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/51/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "春（3月～5月）",
         "categoryId": "52",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/52/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "夏（6月～8月）",
         "categoryId": "53",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/53/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "秋（9月～11月）",
         "categoryId": "54",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/54/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "冬（12月～2月）",
         "categoryId": "55",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/55/"
+        "color": "green lighten-1"
       },
       {
         "categoryName": "その他の目的・シーン",
         "categoryId": "26",
-        "categoryUrl": "https://recipe.rakuten.co.jp/category/26/"
+        "color": "green lighten-1"
       },
       ],
       categoryId: "",
@@ -146,11 +145,7 @@ export default {
     selectCategory: function(id) {
       this.select = true;
       axios
-        .get("http://localhost:5000/recipe/large", {
-          params: {
-            category_id: id
-          }
-        })
+        .get("http://localhost:5000/recipe/large/"+id)
         .then(response => (this.posts = response.data));
     }
   }

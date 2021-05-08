@@ -43,7 +43,7 @@ def resMedRainking(category_id):
         # pprint.pprint(category_ranking)
         it = category_ranking['result']
         for i in range(4):
-            recipe_elem = {'title': it[i]['recipeTitle'], 'foodImageUrl': it[i]['foodImageUrl'], 'recipeUrl': it[i]['recipeUrl']}
+            recipe_elem = {'title': it[i]['recipeTitle'], 'foodImageUrl': it[i]['smallImageUrl'], 'recipeUrl': it[i]['recipeUrl']}
             # print(it[0]['recipeTitle'], it[0]['foodImageUrl'], it[0]['recipeUrl'])
             med_ranking.append(recipe_elem)
         time.sleep(1)
