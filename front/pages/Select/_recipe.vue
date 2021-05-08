@@ -15,6 +15,7 @@
       <v-row class="center">
         <!-- 楽天のレシピページへのリンク付き画像 -->
         <v-col v-for="(post, i) in posts" :key="i" cols="12" md="3" style="margin:2em 0;">
+          <v-list flat>
             <v-list-item-group>
               <v-list-item v-bind:href="post.recipeUrl" target="_blank">
                 <v-list-item-content>
@@ -27,6 +28,7 @@
                 </v-list-item-content>
               </v-list-item>
             </v-list-item-group>
+          </v-list>
         </v-col>
       </v-row>
       <v-row class="center">
