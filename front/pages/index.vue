@@ -8,7 +8,7 @@
         color="pink accent-4"
         block
         class="white--text start-button"
-        ><b>何つくろう</b></v-btn
+        ><b>何つくろう？</b></v-btn
       >
     </div>
   </v-app>
@@ -16,7 +16,7 @@
 
 <style scoped>
 h1 {
-  font-size: 8.5em;
+  font-size: 8em;
   margin: 0.5em auto;
   text-align: center;
 }
