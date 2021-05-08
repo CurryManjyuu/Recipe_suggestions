@@ -21,11 +21,10 @@ def hello():
     return "Hello"
 
 
-@app.route("/hoge", methods=['GET'])
+@app.route("/recipe/large", methods=['GET'])
 def resMedRainking(category_id = 10):
     # 大カテゴリを受け取り、中カテゴリIdが何なのかを調べるためカテゴリ一覧API利用
     # 中カテゴリId分をforで繰り返し、ランキングを取得
-    #
 
     url_list = 'https://app.rakuten.co.jp/services/api/Recipe/CategoryList/20170426?format=json&categoryType=medium&applicationId=1031497863777776898'
     category_list = requests.get(url_list).json()
