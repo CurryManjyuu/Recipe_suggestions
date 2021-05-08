@@ -1,5 +1,12 @@
 <template>
-  <v-app dark>
+  <v-app dark style="position:relative">
+    <v-app-bar fixed app>
+      <v-toolbar-title v-text="title" />
+      <v-spacer />
+      <v-btn style="padding:0px">
+        <Login></Login>
+      </v-btn>
+    </v-app-bar>
     <v-main>
       <v-container>
         <nuxt />
