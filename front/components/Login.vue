@@ -48,10 +48,13 @@
           >
             Sign in
           </v-btn>
+          <button @click="apiTest()" style="position:absolute;top">
+            apiTest
+          </button>
         </v-card-actions>
       </v-card>
     </v-dialog>
-    {{ email }}{{ password }}
+    {{ email }}{{ password }}{{ $store.state.idToken }}
   </div>
 </template>
 
@@ -63,6 +66,11 @@ export default {
       password: "",
       dialog: false
     };
+  },
+  computed: {
+    idToken() {
+      return this.$store.getter.idToken;
+    }
   },
   methods: {
     singUp: function() {
@@ -78,6 +86,8 @@ export default {
         .then(response => {
           console.log(response);
         });
+      this.email = "";
+      this.password = "";
     },
     singIn: function() {
       this.$axios
@@ -91,10 +101,19 @@ export default {
         )
         .then(response => {
           console.log(response);
+          this.$store.commit("updateIdToken", response.data.idToken);
         })
         .catch(error => {
           console.log(error);
         });
+      this.email = "";
+      this.password = "";
+    },
+    apiTest: function() {
+      this.$axios.$get("http://localhost:5000/recipe/large").then(response => {
+        console.log("response", response);
+        this.posts = response;
+      });
     }
   }
 };
