@@ -1,0 +1,15 @@
+
+*.xml
+*.iml
+*.pyc
+venv/Lib/site-packages/aniso8601-9.0.1.dist-info/INSTALLER
+venv/Lib/site-packages/aniso8601-9.0.1.dist-info/LICENSE
+venv/Lib/site-packages/aniso8601-9.0.1.dist-info/METADATA
+venv/Lib/site-packages/aniso8601-9.0.1.dist-info/RECORD
+*.txt
+venv/Lib/site-packages/*
+*.cfg
+venv/Scripts/activate
+*.bat
+*.exe
+*.ps1
