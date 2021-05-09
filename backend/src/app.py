@@ -8,6 +8,7 @@ import json
 import pprint
 import requests
 import time
+import random
 
 # from redis import Redis
 app = Flask(__name__)
@@ -104,6 +105,44 @@ def resSplitMedRanking(category_id, to_next):
 #
 # with open('rakutenAPI_data/medium.json', 'w') as file:
 #     json.dump(med_list_of_large_category, file, indent=2, ensure_ascii=False)
+
+# url_list = 'https://app.rakuten.co.jp/services/api/Recipe/CategoryList/20170426?format=json&categoryType=large&applicationId=1031497863777776898'
+# category_list = requests.get(url_list).json()
+# list_of_large_category = []
+# for it in category_list['result']['large']:
+#     list_of_large_category.append(it['categoryId'])
+#
+# list_of_large_category.sort()
+# with open('rakutenAPI_data/large.json', 'w') as file:
+#     json.dump(list_of_large_category, file, indent=2, ensure_ascii=False)
+
+
+
+with open("rakutenAPI_data/large.json") as file:
+    large_category = json.load(file)
+
+
+@app.route("/recipe/random", methods=['GET'])
+def resRandomRecipe():
+    global large_category
+    # print(len(large_category))
+    large_category_id = large_category[random.randint(0, 42)]
+    med_len = len(med_split_ranking[str(large_category_id)])
+    medium_category_id = med_split_ranking[str(large_category_id)][random.randint(0, med_len)]
+    print(medium_category_id)
+    url_ranking = 'https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?categoryId=' \
+                  + str(large_category_id) + '-' + str(medium_category_id) \
+                  + '&applicationId=1031497863777776898'
+    category_ranking = requests.get(url_ranking).json()
+    med_ranking = []
+    it = category_ranking['result']
+    for i in range(4):
+        recipe_elem = {'title': it[i]['recipeTitle'],
+                       'foodImageUrl': it[i]['foodImageUrl'],
+                       'recipeUrl': it[i]['recipeUrl']}
+        med_ranking.append(recipe_elem)
+
+    return jsonify(med_ranking)
 
 
 if __name__ == "__main__":
