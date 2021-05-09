@@ -3,7 +3,7 @@
     <div>
       <h1>今日の飯</h1>
       <v-btn
-        to="/select/start"
+        to="#"
         x-large
         color="pink accent-4"
         block
@@ -11,6 +11,21 @@
         ><b>何つくろう？</b></v-btn
       >
     </div>
+    <div class="large-category-btn-box">
+    <v-container>
+      <v-row class="center">
+        <v-col cols="12" sm="12" md="4" lg="4">
+          <v-btn rounded to="/select/categories" x-large color="orange accent-4" block class="white--text"><b>材料から選ぶ</b></v-btn>
+        </v-col>
+        <v-col cols="12" sm="12" md="4" lg="4">
+          <v-btn rounded to="/select/method" x-large color="green accent-4" block class="white--text"><b>シーンから選ぶ</b></v-btn>
+        </v-col>
+        <v-col cols="12" sm="12" md="4" lg="4">
+          <v-btn rounded to="/select/feeling" x-large color="light-blue accent-4" block class="white--text"><b>気分から選ぶ</b></v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
     <v-row class="center">
       <!-- ランダムにレシピを表示 -->
       <v-col v-for="(post, i) in posts" :key="i" cols="12" md="3">
@@ -58,7 +73,10 @@ h1 {
 }
 .start-button {
   font-size: 1.75em;
-  margin-bottom: 3em;
+  margin-bottom: 1em;
+}
+.large-category-btn-box {
+  margin-bottom: 2em;
 }
 </style>
 
