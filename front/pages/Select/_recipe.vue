@@ -14,7 +14,7 @@
       </v-row>
       <v-row class="center">
         <!-- 楽天のレシピページへのリンク付き画像 -->
-        <v-col v-for="(post, i) in posts" :key="i" cols="12" md="3" style="margin:2em 0;">
+        <v-col v-for="(post, i) in posts" :key="i" cols="12" md="3">
           <v-list flat>
             <v-list-item-group>
               <v-list-item v-bind:href="post.recipeUrl" target="_blank">
@@ -32,29 +32,19 @@
         </v-col>
       </v-row>
       <v-row class="center">
-        <v-col cols="12" md="3">
+        <v-col cols="12" md="4"></v-col>
+        <v-col cols="12" md="4">
           <v-btn
             color="white"
-            class="black--text"
-            x-large
-            block
-            @click="getRecipe(0)"
-          >
-            <b>前へ</b>
-          </v-btn>
-        </v-col>
-        <v-col cols="12" md="3"></v-col>
-        <v-col cols="12" md="3"></v-col>
-        <v-col cols="12" md="3">
-          <v-btn
-            color="white"
-            class="black--text"
+            class="black--text more-btn"
             x-large
             block
             @click="getRecipe(1)"
+            rounded
           >
-            <b>次へ</b>
+            <b>もっと見る</b>
           </v-btn>
+          <v-col cols="12" md="4"></v-col>
         </v-col>
       </v-row>
     </v-container>
@@ -65,6 +55,9 @@
 .wrap-text {
   word-break: break-all;
   white-space: normal;
+}
+.more-btn {
+  margin: 1em 0;
 }
 </style>
 
@@ -90,7 +83,7 @@ export default {
     getRecipe: function(index) {
       axios
         .get("http://localhost:5000/recipe/large/"+this.$route.params.recipe+"/"+index)
-        .then(response => (this.posts = response.data));
+        .then(response => (this.posts.push(...response.data)));
     }
   }
 };
