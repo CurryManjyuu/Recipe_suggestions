@@ -38,8 +38,9 @@
           class="black--text"
           x-large
           block
-          @click="getRecipe(0)"
+          @click="getRandomRecipe()"
           rounded
+          style="margin-bottom:4em;"
         >
           <b>もっと見る</b>
         </v-btn>
@@ -51,12 +52,13 @@
 
 <style scoped>
 h1 {
-  font-size: 6em;
-  margin: 0.5em auto;
+  font-size: 4em;
+  margin: 0;
   text-align: center;
 }
 .start-button {
   font-size: 1.75em;
+  margin-bottom: 3em;
 }
 </style>
 
@@ -74,16 +76,15 @@ export default {
   // 続いて同じAPIを叩くメソッドを呼び出す。
   mounted () {
     axios
-      .get("http://localhost:5000/recipe/large/"+10+"/"+0)
+      .get("http://localhost:5000/recipe/random")
       .then(response => {
           this.posts = response.data;
-          getRandomRecipe();
       });
   },
   methods: {
     getRandomRecipe: function() {
       axios
-      .get("http://localhost:5000/recipe/large/"+10+"/"+0)
+      .get("http://localhost:5000/recipe/random")
       .then(response => {
           this.posts.push(...response.data);
       });
