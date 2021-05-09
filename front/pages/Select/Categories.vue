@@ -6,7 +6,7 @@
           <v-btn rounded to="/select/start" x-large color="orange accent-1" block class="deep-orange--text"><b>材料から選ぶ</b></v-btn>
         </v-col>
         <v-col cols="12" sm="12" md="4" lg="4">
-          <v-btn rounded to="/select/method" x-large color="green accent-4" block class="white--text"><b>シーンから選ぶ</b></v-btn>
+          <v-btn rounded to="/select/scene" x-large color="green accent-4" block class="white--text"><b>シーンから選ぶ</b></v-btn>
         </v-col>
         <v-col cols="12" sm="12" md="4" lg="4">
           <v-btn rounded to="/select/feeling" x-large color="light-blue accent-4" block class="white--text"><b>気分から選ぶ</b></v-btn>
