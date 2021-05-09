@@ -15,6 +15,5 @@
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.3"
-
   }
 }
