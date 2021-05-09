@@ -2,18 +2,19 @@
   <div class="text-center">
     <v-dialog v-model="dialog" width="500">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn color="blue lighten-2" dark v-bind="attrs" v-on="on">
-          ログイン
+        <v-btn v-if="show" color="indigo accent-4" dark v-bind="attrs" v-on="on">
+          <b>ログイン</b>
         </v-btn>
       </template>
       <v-card>
-        <v-card-title class="headline grey lighten-2">ログイン</v-card-title>
+        <v-card-title class="headline indigo accent-4"><b>ログイン</b></v-card-title>
         <v-card-text>
           <v-form>
+            <b v-if="error != ''">{{ error }}</b>
             <v-text-field
               prepend-icon="mdi-account-circle"
               v-model="email"
-              label="ユーザ名"
+              label="メールアドレス"
             />
             <v-text-field
               prepend-icon="mdi-account-circle"
@@ -30,7 +31,6 @@
             color="primary"
             text
             @click="
-              dialog = false;
               singUp();
             "
             style="position:absolute;bottom:10px;right:100px"
@@ -41,7 +41,6 @@
             color="primary"
             text
             @click="
-              dialog = false;
               singIn();
             "
             style="position:absolute;bottom:10px;right:20px"
@@ -51,7 +50,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    {{ email }}{{ password }}
+    {{ email }}
   </div>
 </template>
 
@@ -61,7 +60,9 @@ export default {
     return {
       email: "",
       password: "",
-      dialog: false
+      dialog: false,
+      show: true,
+      error: ""
     };
   },
   methods: {
@@ -72,11 +73,16 @@ export default {
           {
             email: this.email,
             password: this.password,
-            returnSecureToken: true
+            returnSecureToken: true,
           }
         )
         .then(response => {
           console.log(response);
+          this.show = false;
+          this.dialog = false;
+        })
+        .catch(error => {
+          this.error = error;
         });
     },
     singIn: function() {
@@ -91,9 +97,11 @@ export default {
         )
         .then(response => {
           console.log(response);
+          this.show = false;
+          this.dialog = false;
         })
         .catch(error => {
-          console.log(error);
+          this.error = error;
         });
     }
   }
