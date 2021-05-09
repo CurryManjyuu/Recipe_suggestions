@@ -32,17 +32,6 @@
         </v-col>
       </v-row>
       <v-row class="center">
-        <!-- <v-col cols="12" md="3">
-          <v-btn
-            color="white"
-            class="black--text"
-            x-large
-            block
-            @click="getRecipe(0)"
-          >
-            <b>前へ</b>
-          </v-btn>
-        </v-col> -->
         <v-col cols="12" md="4"></v-col>
         <v-col cols="12" md="4">
           <v-btn
