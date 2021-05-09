@@ -13,3 +13,4 @@ venv/Scripts/activate
 *.bat
 *.exe
 *.ps1
+front/package-lock.json
