@@ -1,5 +1,6 @@
 # Recipe_suggestions
 
+楽天APIを用いたレシピ探索アプリ
 
 初回のみ(localhost:5000)
 * docker-compose up --build
